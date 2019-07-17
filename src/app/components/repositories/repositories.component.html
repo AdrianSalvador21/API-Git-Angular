@@ -6,7 +6,7 @@
       <div class="check-container">
         <p class="filter-title">Tipo</p>
         <div class="custom-control custom-checkbox" *ngFor="let lenguage of languages">
-          <input (change)="change($event)" type="checkbox" class="custom-control-input" [id]="lenguage"
+          <input (change)="change()" type="checkbox" class="custom-control-input lenguages" [id]="lenguage"
                  [value]="lenguage">
           <label class="custom-control-label" [for]="lenguage">{{lenguage}}</label>
         </div>
