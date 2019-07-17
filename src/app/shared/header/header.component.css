@@ -1,0 +1,10 @@
+
+
+.user-image {
+  width: 2rem;
+  text-decoration: none;
+}
+
+.user-image:hover {
+  text-decoration: none;
+}
