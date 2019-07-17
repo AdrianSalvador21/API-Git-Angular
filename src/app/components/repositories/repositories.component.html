@@ -1,23 +1,14 @@
-<h2 class="mb-3 ml-2">Repositorios</h2>
+<!--<h2 class="mb-3 ml-2">Repositorios</h2>-->
 
-<div class="row">
-  <div class="col-12 col-sm-12 col-md-2 mt-5 checks-container">
+<div class="row mt-3" *ngIf="!!repositoriesToShow">
+  <div class="col-12 col-sm-12 col-md-3 col-lg-3 mt-5 col-xl-2 checks-container">
     <div class="mb-3 check-global-container">
       <div class="check-container">
         <p class="filter-title">Tipo</p>
-        <div class="custom-control custom-checkbox">
-          <input (change)="change($event)" type="checkbox" class="custom-control-input" id="TypeScript"
-                 value="TypeScript">
-          <label class="custom-control-label" for="TypeScript">TS</label>
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input (change)="change($event)" type="checkbox" class="custom-control-input" id="JS" value="JavaScript">
-          <label class="custom-control-label" for="JS">JS</label>
-        </div>
-
-        <div class="custom-control custom-checkbox">
-          <input (change)="change($event)" type="checkbox" class="custom-control-input" id="CSS" value="CSS">
-          <label class="custom-control-label" for="CSS">CSS</label>
+        <div class="custom-control custom-checkbox" *ngFor="let lenguage of languages">
+          <input (change)="change($event)" type="checkbox" class="custom-control-input" [id]="lenguage"
+                 [value]="lenguage">
+          <label class="custom-control-label" [for]="lenguage">{{lenguage}}</label>
         </div>
       </div>
     </div>
@@ -38,21 +29,21 @@
   </div>
 
 
-  <div class="col-12 mt-3 col-sm-12 col-md-10 mt-3" *ngIf="!!repositoriesToShow">
+  <div class="col-12 mt-3 col-sm-12 col-md-9 col-lg-9 col-xl-10 mt-3">
     <div class="add-button-container">
       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addModal">Agregar Repositorio</button>
     </div>
-    <div class="animated fadeIn fast row cards-container">
+    <div class="animated fadeIn fast cards-container">
 
       <div class="card card-content" *ngFor="let repo of repositoriesToShow">
         <!--<img class="card-img-top" [src]="materias[mat].imagen" [alt]="materias[mat].nombre">-->
         <div class="card-body">
-          <a class="text-muted my-2 my-sm-0 card-title" [href]="repo.html_url"
+          <a class="my-2 my-sm-0 card-title repository-link" [href]="repo.html_url"
              target="_blank">{{repo.name | uppercase}}</a>
           <p class="card-text" *ngIf="!repo.private">Acceso publico</p>
           <p class="card-text" *ngIf="repo.private">Acceso privado</p>
-          <p class="card-text text-muted">{{repo.description}}</p>
-          <p class="card-text text-muted">{{repo.language}}</p>
+          <p class="card-text">{{repo.description}}</p>
+          <p class="card-text">{{repo.language}}</p>
           <!--<i class="fa fa-eye" aria-hidden="true"></i>-->
           <!--<button (click)="irLecciones(materias[mat].id)" type="button" class="btn boton btn-block" name="button">Lecciones</button>-->
         </div>

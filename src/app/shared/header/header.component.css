@@ -1,4 +1,6 @@
-
+.drop-icon {
+  margin-right: 1rem;
+}
 
 .user-image {
   width: 2rem;
@@ -7,4 +9,15 @@
 
 .user-image:hover {
   text-decoration: none;
+}
+
+.brand-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
 }

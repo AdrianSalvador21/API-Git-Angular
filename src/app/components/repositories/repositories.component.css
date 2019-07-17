@@ -3,10 +3,20 @@
   width: 100%;
 }
 
+.repository-link {
+  color: #d86777;
+  cursor: pointer;
+}
+
+.repository-link:hover {
+  text-decoration: none;
+}
+
 .cards-container {
   display: flex;
   justify-content: center;
   justify-items: center;
+  flex-wrap: wrap;
 }
 
 .card-content {
@@ -49,7 +59,20 @@
     width: 40%;
   }
 }
-@media only screen and (max-width: 750px) {
+
+@media only screen and (min-width: 900px) {
+  .checks-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .check-global-container {
+    width: 50%;
+    margin-right: 0.5rem;
+  }
+}
+@media only screen and (max-width: 950px) {
   .checks-container {
     display: flex;
     width: 100%;
