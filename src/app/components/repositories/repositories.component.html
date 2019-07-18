@@ -56,7 +56,7 @@
 
 
 <!--MODAL-->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" #childModal tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-light">
@@ -67,19 +67,28 @@
       </div>
       <div class="modal-body">
 
-        <form>
+        <form [formGroup]="filterForm" #form="ngForm">
           <div class="form-group">
             <label for="name-control">Nombre Repositorio</label>
-            <input type="text" class="form-control" id="name-control" aria-describedby="name-control-help" placeholder="Nombre">
+            <input type="text"
+                   class="form-control"
+                   id="name-control"
+                   formControlName="name"
+                   aria-describedby="name-control-help"
+                   placeholder="Nombre">
             <small id="name-control-help" class="form-text text-muted">
               Los grandes nombres de los repositorios son cortos y memorables.</small>
           </div>
           <div class="form-group">
             <label for="description-control">Descripción (opcional)</label>
-            <input type="text" class="form-control" id="description-control" placeholder="Descripción">
+            <input type="text"
+                   class="form-control"
+                   formControlName="description"
+                   id="description-control"
+                   placeholder="Descripción">
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="private-control">
+            <input type="checkbox" formControlName="private" class="form-check-input" id="private-control">
             <label class="form-check-label" for="private-control">Repositorio Privado</label>
           </div>
         </form>
@@ -87,7 +96,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary btn-sm">Crear</button>
+        <button type="button"
+                [disabled]="filterForm.invalid"
+                class="btn btn-primary btn-sm" (click)="createRepository()">Crear</button>
       </div>
     </div>
   </div>
