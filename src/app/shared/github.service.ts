@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
@@ -11,7 +11,6 @@ export class GithubService {
   accessToken = '6d61c09af2c57550cc49d5';
   accessTokenTwo = '7d733806076eafea9c';
   reposSort = 'created: asc';
-
 
   constructor(private http: HttpClient) {
   }
@@ -35,6 +34,19 @@ export class GithubService {
 
   getRepositories(page): any {
     return this.http.get<any>(`https://api.github.com/users/AdrianSalvador21/repos?client_id=${this.clientId}&client_secret=${this.clientSecret}&page=${page}&visibility=all`)
+      .pipe(
+        map((response) => {
+          console.log(response);
+          return response;
+        }));
+  }
+
+  getProjects(): any {
+    return this.http.get<any>(`https://api.github.com/users/AdrianSalvador21/projects?client_id=${this.clientId}&client_secret=${this.clientSecret}`, {
+      headers: {
+        'Accept': 'application/vnd.github.inertia-preview+json'
+      }
+    })
       .pipe(
         map((response) => {
           console.log(response);

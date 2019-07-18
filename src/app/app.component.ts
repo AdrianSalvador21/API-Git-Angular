@@ -18,6 +18,7 @@ export class AppComponent {
       this.user = userResponse;
     });
 
+
     // this.githubService.getRepositories().subscribe(repositoriesResponse => {
     //   console.log(repositoriesResponse);
     // });

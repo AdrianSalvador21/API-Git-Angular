@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GithubService} from '../../shared/github.service';
 
 @Component({
   selector: 'app-proyects',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectsComponent implements OnInit {
 
-  constructor() { }
+  projects: any;
+
+  constructor(private githubService: GithubService) {
+    this.githubService.getProjects().subscribe(projectsResponse => {
+      console.log(projectsResponse);
+      this.projects = projectsResponse;
+    });
+  }
 
   ngOnInit() {
   }
