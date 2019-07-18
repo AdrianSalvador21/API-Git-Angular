@@ -11,6 +11,7 @@ import { RepositoriesComponent } from './components/repositories/repositories.co
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowingComponent } from './components/following/following.component';
+import { PaginatorComponent } from './shared/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FollowingComponent } from './components/following/following.component';
     RepositoriesComponent,
     ProyectsComponent,
     FollowersComponent,
-    FollowingComponent
+    FollowingComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

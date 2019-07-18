@@ -5,10 +5,10 @@
     <div class="mb-3 check-global-container">
       <div class="check-container">
         <p class="filter-title">Tipo</p>
-        <div class="custom-control custom-checkbox" *ngFor="let lenguage of languages">
-          <input (change)="change()" type="checkbox" class="custom-control-input lenguages" [id]="lenguage"
-                 [value]="lenguage">
-          <label class="custom-control-label" [for]="lenguage">{{lenguage}}</label>
+        <div class="custom-control custom-checkbox" *ngFor="let language of languages">
+          <input (change)="changeLanguage()" type="checkbox" class="custom-control-input languages" [id]="language"
+                 [value]="language">
+          <label class="custom-control-label" [for]="language">{{language}}</label>
         </div>
       </div>
     </div>
@@ -16,12 +16,12 @@
       <div class="check-container">
         <p class="filter-title">Acceso</p>
         <div class="custom-control custom-checkbox">
-          <input (change)="change($event)" type="checkbox" class="custom-control-input" id="public">
+          <input (change)="changePrivate()" type="checkbox" class="custom-control-input private" id="public">
           <label class="custom-control-label" for="public">Público</label>
         </div>
 
         <div class="custom-control custom-checkbox">
-          <input (change)="change($event)" type="checkbox" class="custom-control-input" id="private">
+          <input (change)="changePrivate()" type="checkbox" class="custom-control-input private" id="private">
           <label class="custom-control-label" for="private">Privado</label>
         </div>
       </div>
@@ -34,7 +34,6 @@
       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addModal">Agregar Repositorio</button>
     </div>
     <div class="animated fadeIn fast cards-container">
-
       <div class="card card-content" *ngFor="let repo of repositoriesToShow">
         <!--<img class="card-img-top" [src]="materias[mat].imagen" [alt]="materias[mat].nombre">-->
         <div class="card-body">
@@ -49,6 +48,10 @@
         </div>
       </div>
     </div>
+
+    <div class="paginator-container">
+      <app-paginator (changePageEmitter)="changePage($event)" [selectedPage]="selectedPage" [elements]="50"></app-paginator>
+    </div>
   </div>
 </div>
 
@@ -60,7 +63,9 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-light">
-        <h4 class="modal-title" id="addModalLabel">Crear Repositorio</h4>
+        <h4 class="modal-title" id="addModalLabel">
+          Crear Repositorio
+        </h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -87,17 +92,26 @@
                    id="description-control"
                    placeholder="Descripción">
           </div>
+
           <div class="form-check">
             <input type="checkbox" formControlName="private" class="form-check-input" id="private-control">
             <label class="form-check-label" for="private-control">Repositorio Privado</label>
           </div>
         </form>
 
+        <div class="fa-3x spinner-container" *ngIf="creatingRepository">
+          <i class="fas fa-spinner fa-pulse spinner-icon"></i>
+        </div>
+
+        <div class="alert alert-danger error-dialog" role="alert" *ngIf="error">
+          Error al crear repositorio. Verifica que no sea existente e inténtalo de nuevo.
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
         <button type="button"
-                [disabled]="filterForm.invalid"
+                [disabled]="filterForm.invalid || creatingRepository"
                 class="btn btn-primary btn-sm" (click)="createRepository()">Crear</button>
       </div>
     </div>
