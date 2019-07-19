@@ -24,5 +24,8 @@
 
 .dropdown-form {
   display: flex;
-  flex-direction: row-reverse;
+}
+
+.dropdown-button {
+  padding-left: 0 !important;
 }

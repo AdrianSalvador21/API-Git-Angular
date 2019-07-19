@@ -24,3 +24,23 @@
   display: flex;
   flex-direction: row-reverse;
 }
+
+.form-card {
+  background-color: #f8f9fade;;
+}
+
+.project-item-textDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #d75e6f;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: end;
+}

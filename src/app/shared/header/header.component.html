@@ -26,7 +26,7 @@
     <form class="form-inline my-2 my-lg-0 dropdown-form" *ngIf="!!user">
       <!--<a class="text-muted ml-2 my-2 my-sm-0" [href]="user.html_url" target="_blank">{{user.login}}</a>-->
       <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-light dropdown-toggle dropdown-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img [src]="user.avatar_url" class="rounded-circle user-image">
           {{user.login}}
         </button>

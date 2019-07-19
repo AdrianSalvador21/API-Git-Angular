@@ -18,7 +18,6 @@ export class GithubService {
   getInitial(): any {
     return this.http.get<any>('https://api.github.com').pipe(
       map((response) => {
-        console.log(response);
         return response;
       }));
   }
@@ -26,17 +25,15 @@ export class GithubService {
   getUser(): any {
     return this.http.get<any>(`https://api.github.com/users/AdrianSalvador21?client_id=${this.clientId}&client_secret=${this.clientSecret}&sort=${this.reposSort}`)
       .pipe(
-      map((response) => {
-        console.log(response);
-        return response;
-      }));
+        map((response) => {
+          return response;
+        }));
   }
 
   getRepositories(page): any {
     return this.http.get<any>(`https://api.github.com/users/AdrianSalvador21/repos?client_id=${this.clientId}&client_secret=${this.clientSecret}&page=${page}&visibility=all`)
       .pipe(
         map((response) => {
-          console.log(response);
           return response;
         }));
   }
@@ -49,7 +46,6 @@ export class GithubService {
     })
       .pipe(
         map((response) => {
-          console.log(response);
           return response;
         }));
   }
@@ -63,6 +59,54 @@ export class GithubService {
         private: data.private,
         has_issues: true,
         has_wiki: true
+      }
+    ).pipe(
+      map((response) => {
+        return response;
+      }));
+  }
+
+  updateProject(data, projectID): any {
+    return this.http.patch<any>(`https://api.github.com/projects/${projectID}?client_id=${this.clientId}&client_secret=${this.clientSecret}&access_token=${this.accessToken + this.accessTokenTwo}`,
+      {
+        name: data.name,
+        body: data.description,
+        state: data.state,
+        private: false
+      }, {
+        headers: {
+          'Accept': 'application/vnd.github.inertia-preview+json'
+        }
+      }
+    ).pipe(
+      map((response) => {
+        return response;
+      }));
+  }
+
+  deleteProject(projectID): any {
+    return this.http.delete<any>(`https://api.github.com/projects/${projectID}?access_token=${this.accessToken + this.accessTokenTwo}`,
+      {
+        headers: {
+          'Accept': 'application/vnd.github.inertia-preview+json'
+        }
+      }
+    ).pipe(
+      map((response) => {
+        return response;
+      }));
+  }
+
+  createProject(data): any {
+    return this.http.post<any>(`https://api.github.com/user/projects?access_token=${this.accessToken + this.accessTokenTwo}`,
+      {
+        name: !!data.name ? data.name : '',
+        body: !!data.body ? data.body : ''
+      },
+      {
+        headers: {
+          'Accept': 'application/vnd.github.inertia-preview+json'
+        }
       }
     ).pipe(
       map((response) => {
