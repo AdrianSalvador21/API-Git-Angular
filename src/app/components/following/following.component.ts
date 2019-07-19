@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GithubService} from '../../shared/github.service';
 
 @Component({
   selector: 'app-following',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FollowingComponent implements OnInit {
 
-  constructor() { }
+  followingUsers = [];
+
+  constructor(public githubServer: GithubService) {
+    this.githubServer.getFollowingUser().subscribe(followingResponse => {
+      console.log(followingResponse);
+      this.followingUsers = followingResponse;
+    });
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,16 @@
+.user-image {
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.user-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-icon {
+  font-size: 1rem;
+  color: #d86777;
+  cursor: pointer;
+}

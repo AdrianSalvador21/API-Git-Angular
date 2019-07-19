@@ -1,13 +1,14 @@
-<div class="new-button-container mt-3 mr-1 mb-3">
+<div class="new-button-container mt-3 mb-3 col-12">
   <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addProject">Nuevo Proyecto</button>
 </div>
 
-<div class="alert alert-info" role="alert" *ngIf="projects.length === 0">
-  Aún no hay proyectos disponibles.
+<div class="w-100 alert-container">
+  <div class="alert alert-info col-12 col-sm-10 col-md-10 col-lg-9 alert-content" role="alert" *ngIf="projects.length === 0">
+    Aún no hay proyectos disponibles.
+  </div>
 </div>
 
-
-<div class="projects-container w-100">
+<div class="col-12 col-sm-10 col-md-10 col-lg-9 justify-content-center projects-container">
   <ul class="list-group">
     <div *ngFor="let project of projects; let i = index">
       <!--DESCRIPTION LIST ITEM-->
@@ -16,7 +17,8 @@
           <span>{{project.name}}</span>
           <span class="text-muted">{{project.body}}</span>
         </div>
-        <i class="fas fa-pen project-item-icon" data-toggle="collapse" [attr.data-target]="'#' + project.name" aria-expanded="false" aria-controls="collapseExample"></i>
+        <i class="fas fa-pen project-item-icon" data-toggle="collapse" [attr.data-target]="'#' + project.name"
+           aria-expanded="false" aria-controls="collapseExample"></i>
       </li>
 
       <!--COLLAPSE UPDATE - DELETE FORM-->
@@ -64,7 +66,8 @@
           <div class="buttons-container">
             <button type="button"
                     [swal]="deleteSwal"
-                    class="btn btn-danger btn-sm ml-1">Eliminar</button>
+                    class="btn btn-danger btn-sm ml-1">Eliminar
+            </button>
 
             <swal
               #deleteSwal
@@ -76,7 +79,9 @@
               (confirm)="deleteProject(i,project.id)">
             </swal>
 
-            <button [disabled]="form.invalid || project.updating" type="button" class="btn btn-dark btn-sm" (click)="updateProject(form, i, project.id)">Actualizar</button>
+            <button [disabled]="form.invalid || project.updating" type="button" class="btn btn-dark btn-sm"
+                    (click)="updateProject(form, i, project.id)">Actualizar
+            </button>
             <i class="fas fa-spinner fa-pulse update-icon" *ngIf="project.updating"></i>
           </div>
         </div>
@@ -86,10 +91,9 @@
 </div>
 
 
-
-
 <!-- Modal -->
-<div class="modal fade" #childModal id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel" aria-hidden="true">
+<div class="modal fade" #childModal id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -122,7 +126,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-dark btn-sm" [disabled]="filterForm.invalid" (click)="createProject()">Crear</button>
+        <button type="button" class="btn btn-dark btn-sm" [disabled]="filterForm.invalid" (click)="createProject()">
+          Crear
+        </button>
       </div>
     </div>
   </div>

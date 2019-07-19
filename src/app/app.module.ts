@@ -13,6 +13,7 @@ import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowingComponent } from './components/following/following.component';
 import { PaginatorComponent } from './shared/paginator/paginator.component';
+import { SearchUsersComponent } from './components/search-users/search-users.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PaginatorComponent } from './shared/paginator/paginator.component';
     ProyectsComponent,
     FollowersComponent,
     FollowingComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    SearchUsersComponent
   ],
   imports: [
     BrowserModule,

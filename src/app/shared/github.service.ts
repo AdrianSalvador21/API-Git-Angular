@@ -114,5 +114,13 @@ export class GithubService {
       }));
   }
 
+  getFollowingUser(): any {
+    return this.http.get<any>(`https://api.github.com/user/following?client_id=${this.clientId}&client_secret=${this.clientSecret}&access_token=${this.accessToken + this.accessTokenTwo}`)
+      .pipe(
+        map((response) => {
+          return response;
+        }));
+  }
+
 
 }

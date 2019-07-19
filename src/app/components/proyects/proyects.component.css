@@ -4,6 +4,19 @@
   width: 100%;
 }
 
+.alert-container {
+  display: flex;
+  justify-content: center;
+}
+
+.alert-content {
+  text-align: center;
+}
+
+.projects-container {
+  margin: 0 auto;
+}
+
 .project-item {
   display: flex;
   align-items: center;
@@ -42,5 +55,13 @@
 
 .spinner-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+}
+
+@media only screen and (min-width: 500px) {
+  .new-button-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
 }
