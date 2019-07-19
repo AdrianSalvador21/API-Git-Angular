@@ -9,12 +9,12 @@
           {{user.login}}
         </div>
         <i *ngIf="user.follow" class="fas fa-user-minus user-icon" (click)="unfollowUser(user.login, i)"></i>
-        <i *ngIf="!user.follow" class="fas fa-user-plus user-icon-follow"></i>
+        <i *ngIf="!user.follow" class="fas fa-user-plus user-icon-follow" (click)="followUser(user, i)"></i>
       </li>
     </ul>
   </div>
 
   <div class="col-12 col-md-5">
-    <app-search-users (followUserEmitter)="addFollower($event)" [followingUsers]="followingUsersNames"></app-search-users>
+    <app-search-users #searchComponent (followUserEmitter)="addFollower($event)" [followingUsers]="followingUsersNames"></app-search-users>
   </div>
 </div>

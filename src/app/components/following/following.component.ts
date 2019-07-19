@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {GithubService} from '../../shared/github.service';
+import {SearchUsersComponent} from '../search-users/search-users.component';
 
 @Component({
   selector: 'app-following',
@@ -7,6 +8,7 @@ import {GithubService} from '../../shared/github.service';
   styleUrls: ['./following.component.css']
 })
 export class FollowingComponent implements OnInit {
+  @ViewChild('searchComponent') searchComponent: SearchUsersComponent;
 
   followingUsers = [];
   followingUsersNames = [];
@@ -35,6 +37,11 @@ export class FollowingComponent implements OnInit {
   addFollower(newFollower) {
     newFollower.follow = true;
     this.followingUsers.push(newFollower);
+  }
+
+  followUser(user, index) {
+    this.searchComponent.followUser(user);
+    this.followingUsers.splice(index, 1);
   }
 
 }
