@@ -1,0 +1,14 @@
+.followers-content {
+  justify-content: center;
+}
+
+.user-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-image {
+  width: 2rem;
+  margin-right: 1rem;
+}

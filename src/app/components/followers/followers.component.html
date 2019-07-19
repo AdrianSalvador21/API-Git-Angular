@@ -1,3 +1,14 @@
-<p>
-  followers works!
-</p>
+<div class="row followers-content">
+  <div class="col-12 col-md-5">
+    <ul class="list-group following-users-list">
+      <li *ngFor="let user of followers; let i = index;" class="list-group-item user-list-item">
+        <div class="user-info-container">
+          <a [href]="user.html_url" target="_blank">
+            <img [src]="user.avatar_url" class="rounded-circle user-image">
+          </a>
+          {{user.login}}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
