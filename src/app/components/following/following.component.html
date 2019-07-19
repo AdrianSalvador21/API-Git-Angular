@@ -1,16 +1,20 @@
-<div class="row">
-  <div class="col-12">
-    <ul class="list-group">
-      <li *ngFor="let user of followingUsers" class="list-group-item user-list-item">
+<div class="row followers-content">
+  <div class="col-12 col-md-5">
+    <ul class="list-group following-users-list">
+      <li *ngFor="let user of followingUsers; let i = index;" class="list-group-item user-list-item">
         <div class="user-info-container">
-          <img [src]="user.avatar_url" class="rounded-circle user-image">
+          <a [href]="user.html_url" target="_blank">
+            <img [src]="user.avatar_url" class="rounded-circle user-image">
+          </a>
           {{user.login}}
         </div>
-
-        <a [href]="user.html_url" target="_blank">
-          <i class="fas fa-user user-icon"></i>
-        </a>
+        <i *ngIf="user.follow" class="fas fa-user-minus user-icon" (click)="unfollowUser(user.login, i)"></i>
+        <i *ngIf="!user.follow" class="fas fa-user-plus user-icon-follow"></i>
       </li>
     </ul>
+  </div>
+
+  <div class="col-12 col-md-5">
+    <app-search-users (followUserEmitter)="addFollower($event)" [followingUsers]="followingUsersNames"></app-search-users>
   </div>
 </div>

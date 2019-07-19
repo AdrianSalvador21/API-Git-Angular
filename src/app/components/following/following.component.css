@@ -14,3 +14,19 @@
   color: #d86777;
   cursor: pointer;
 }
+
+.user-icon-follow {
+  font-size: 1rem;
+  color: #346321;
+  cursor: pointer;
+}
+
+.following-users-list {
+  margin-bottom: 1rem;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.followers-content {
+  justify-content: center;
+}

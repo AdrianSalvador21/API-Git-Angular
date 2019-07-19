@@ -122,5 +122,39 @@ export class GithubService {
         }));
   }
 
+  searchUser(value): any {
+    return this.http.get<any>(`https://api.github.com/search/users?client_id=${this.clientId}&client_secret=${this.clientSecret}&q=${value}`)
+      .pipe(
+        map((response) => {
+          return response;
+        }));
+  }
+
+  unfollowUser(username): any {
+    return this.http.delete<any>(`https://api.github.com/user/following/${username}?access_token=${this.accessToken + this.accessTokenTwo}`,
+      {
+        headers: {
+          'Accept': 'application/vnd.github.inertia-preview+json'
+        }
+      }
+    ).pipe(
+      map((response) => {
+        return response;
+      }));
+  }
+
+  followUser(username): any {
+    return this.http.put<any>(`https://api.github.com/user/following/${username}?access_token=${this.accessToken + this.accessTokenTwo}`,
+      {
+        headers: {
+          'Content-Length': '0'
+        }
+      }
+    ).pipe(
+      map((response) => {
+        return response;
+      }));
+  }
+
 
 }

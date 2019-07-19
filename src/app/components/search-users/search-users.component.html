@@ -1,3 +1,21 @@
-<p>
-  search-users works!
-</p>
+<div class="input-group mb-3">
+    <input type="text" class="form-control" #searchInput placeholder="Nombre" ngModel name="search" aria-label="name" aria-describedby="button-search">
+    <div class="input-group-append">
+      <button class="btn btn-dark" type="button" id="button-search" [disabled]="!searchInput.value" (click)="search(searchInput)">Buscar</button>
+    </div>
+</div>
+
+<ul class="list-group user-list-items" *ngIf="searchResult.length !== 0">
+  <li *ngFor="let user of searchResult" class="list-group-item user-list-item">
+    <div class="user-info-container">
+      <a [href]="user.html_url" target="_blank">
+        <img [src]="user.avatar_url" class="rounded-circle user-image">
+      </a>
+      {{user.login}}
+    </div>
+    <div>
+      <i *ngIf="!followingUsers.includes(user.login)" class="fas fa-user-plus user-icon" (click)="followUser(user)"></i>
+      <i *ngIf="followingUsers.includes(user.login)" class="fas fa-user-friends user-icon"></i>
+    </div>
+  </li>
+</ul>
