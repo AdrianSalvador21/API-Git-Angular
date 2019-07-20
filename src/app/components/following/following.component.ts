@@ -29,9 +29,11 @@ export class FollowingComponent implements OnInit {
 
   unfollowUser(username, i) {
     this.followingUsers[i].follow = false;
-    this.githubService.unfollowUser(username).subscribe(unfollowResponse => {
+    this.githubService.unfollowUser(username.login).subscribe(unfollowResponse => {
       console.log(unfollowResponse);
     });
+
+    this.searchComponent.unfollow(username);
   }
 
   addFollower(newFollower) {

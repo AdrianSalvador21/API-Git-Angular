@@ -1,3 +1,14 @@
+.title-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.3rem;
+}
+
 .user-image {
   width: 2rem;
   margin-right: 1rem;
@@ -23,8 +34,9 @@
 
 .following-users-list {
   margin-bottom: 1rem;
-  max-height: 50vh;
-  overflow-y: scroll;
+  max-height: 80vh;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .followers-content {

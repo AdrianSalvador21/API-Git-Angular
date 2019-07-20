@@ -1,9 +1,13 @@
+<div class="title-container">
+  <h4 class="mb-3 ml-2 title">Proyectos</h4>
+</div>
+
 <div class="new-button-container mt-3 mb-3 col-12">
   <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addProject">Nuevo Proyecto</button>
 </div>
 
 <div class="w-100 alert-container">
-  <div class="alert alert-info col-12 col-sm-10 col-md-10 col-lg-9 alert-content" role="alert" *ngIf="projects.length === 0">
+  <div class="alert alert-info col-12 col-sm-10 col-md-10 col-lg-9 alert-content" role="alert" *ngIf="!!projects && projects.length === 0">
     Aún no hay proyectos disponibles.
   </div>
 </div>
@@ -29,6 +33,7 @@
             <div class="form-group">
               <label for="name-control">Nombre Proyecto</label>
               <input type="text"
+                     autocomplete="off"
                      class="form-control"
                      id="name-control"
                      name="name"
@@ -40,6 +45,7 @@
             <div class="form-group">
               <label for="description-control">Descripción</label>
               <input type="text"
+                     autocomplete="off"
                      class="form-control"
                      id="description-control"
                      [ngModel]="project.body"
@@ -107,6 +113,7 @@
           <div class="form-group">
             <label for="name-control">Nombre Proyecto</label>
             <input type="text"
+                   autocomplete="off"
                    class="form-control"
                    formControlName="name"
                    name="name"
@@ -117,6 +124,7 @@
           <div class="form-group">
             <label for="description-control">Descripción</label>
             <input type="text"
+                   autocomplete="off"
                    class="form-control"
                    formControlName="body"
                    name="description"

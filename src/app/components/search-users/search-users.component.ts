@@ -10,6 +10,8 @@ import {NgForm} from '@angular/forms';
 export class SearchUsersComponent implements OnInit {
   @Input() followingUsers: any[];
   searchResult: any = [];
+
+
   @Output() followUserEmitter = new EventEmitter();
 
   constructor(public githubService: GithubService) {
@@ -36,5 +38,10 @@ export class SearchUsersComponent implements OnInit {
     });
     // emit
     this.followUserEmitter.emit(user);
+  }
+
+  unfollow(user) {
+    const index = this.followingUsers.indexOf(user);
+    this.followingUsers.splice(index, 1);
   }
 }

@@ -11,7 +11,7 @@ export class ProyectsComponent implements OnInit {
   @ViewChild('childModal') public childModal: ElementRef;
   updateSuccess = false;
   updateError = false;
-  projects: any = [];
+  projects: any;
 
   filterForm = this.fb.group({
     name: ['', [Validators.required]],

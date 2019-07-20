@@ -5,7 +5,8 @@
 
 .user-list-items {
   max-height: 70vh;
-  overflow-y: scroll;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .user-list-item {
@@ -19,4 +20,15 @@
   color: #346321;
   cursor: pointer;
   margin-left: 3px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.3rem;
 }
