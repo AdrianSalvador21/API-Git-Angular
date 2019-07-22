@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="paginator-container">
+    <div class="paginator-container" *ngIf="!!repositoriesToShow && repositoriesToShow.length !== 0">
       <app-paginator (changePageEmitter)="changePage($event)" [selectedPage]="selectedPage" [elements]="50"></app-paginator>
     </div>
   </div>
