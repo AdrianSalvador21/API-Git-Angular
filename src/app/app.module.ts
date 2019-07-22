@@ -16,6 +16,10 @@ import { PaginatorComponent } from './shared/paginator/paginator.component';
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {StoreModule} from '@ngrx/store';
+import {appReducers} from './app.reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,11 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
         },
         deps: [ HttpClient ]
       }
+    }),
+    StoreModule.forRoot( appReducers ),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
     })
   ],
   providers: [],

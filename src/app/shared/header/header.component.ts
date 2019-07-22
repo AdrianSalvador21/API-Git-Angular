@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../app.reducer';
+import {SetLanguageAction, validLanguages} from '../languaje.actions';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +10,19 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() user: any;
+  language: validLanguages = 'es';
 
-  constructor() {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit() {
+  }
+
+  changeLanguage() {
+    this.language = this.language === 'es' ? 'en' : 'es';
+    console.log(this.language);
+    const accion = new SetLanguageAction( this.language );
+    this.store.dispatch( accion );
   }
 
 }

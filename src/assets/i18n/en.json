@@ -1,5 +1,74 @@
 {
+  "header": {
+    "repositories": "Repositories",
+    "projects": "Projects",
+    "followers": "Followers",
+    "following": "Following",
+    "personalSample": "Personal Sample",
+    "githubProfile": "Github Profile",
+    "changeLanguage": "Change Language"
+  },
   "projects": {
-    "title": "Projects"
+    "title": "Projects",
+    "newProject": "New Project",
+    "emptyProjects": "No projects avaible yet.",
+    "updateForm": {
+      "name": "New Project",
+      "description": "Description",
+      "status": "Status",
+      "statusOptions": {
+        "open": "Open",
+        "closed": "Closed"
+      },
+      "updatedSuccessfully": "Project updated successfully",
+      "updatedFailed": "Error updating the project. Try again.",
+      "deleteQuestion": "Delete ",
+      "deleteWarning": "The change cannot be removed. Are you sure?"
+    },
+    "createModal": {
+      "create": "Create Projects",
+      "name": "Name",
+      "description": "Description",
+      "projectName": "Project Name"
+    }
+  },
+  "repositories": {
+    "title": "Repositories",
+    "publicAccess": "Public Access",
+    "privateAccess": "Private Access",
+    "filter": {
+      "type": "Type",
+      "access": "Access",
+      "public": "Public",
+      "private": "Private"
+    },
+    "createRepository": {
+      "create": "Create Repository",
+      "repositoryName": "Repository Name",
+      "name": "Name",
+      "namesHelp": "Great repository names are short and memorable.",
+      "descriptionTitle": "Description (optional)",
+      "description": "Description",
+      "privateRepository": "Private Repository",
+      "error": "Error creating repository. Verify that it is not existing and try again."
+    }
+  },
+  "following": {
+    "title": "Following"
+  },
+  "search": {
+    "title": "Search Users",
+    "name": "Name"
+  },
+  "followers": {
+    "title": "Followers"
+  },
+  "general": {
+    "deleteButton": "Delete",
+    "updateButton": "Update",
+    "cancelButton": "Cancel",
+    "createButton": "Create",
+    "searchButton": "Search",
+    "addRepository": "Add Repository"
   }
 }

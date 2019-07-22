@@ -27,5 +27,8 @@
 }
 
 .dropdown-button {
-  padding-left: 0 !important;
+}
+
+.changeLanguageItem {
+  cursor: pointer;
 }

@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@ngrx/store": "^8.1.0",
+    "@ngrx/store-devtools": "^8.1.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@sweetalert2/ngx-sweetalert2": "^5.1.0",

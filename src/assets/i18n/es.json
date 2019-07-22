@@ -5,7 +5,8 @@
     "followers": "Seguidores",
     "following": "Siguiendo",
     "personalSample": "Muestra Personal",
-    "githubProfile": "Perfil Github"
+    "githubProfile": "Perfil Github",
+    "changeLanguage": "Cambiar lenguaje"
   },
   "projects": {
     "title": "Proyectos",
