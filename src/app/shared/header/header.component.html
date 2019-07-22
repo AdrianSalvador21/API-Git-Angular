@@ -11,16 +11,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/repositories']">Repositorios</a>
+        <a class="nav-link" [routerLink]="['/repositories']">{{'header.repositories' | translate}}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/proyects']">Proyectos</a>
+        <a class="nav-link" [routerLink]="['/projects']">{{'header.projects' | translate}}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/followers']">Seguidores</a>
+        <a class="nav-link" [routerLink]="['/followers']">{{'header.followers' | translate}}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/following']">Siguiendo</a>
+        <a class="nav-link" [routerLink]="['/following']">{{'header.following' | translate}}</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 dropdown-form" *ngIf="!!user">
@@ -33,11 +33,11 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="https://portafolio-5974e.web.app/proyectos" target="_blank">
             <i class="far fa-id-card drop-icon"></i>
-            <span>Muestra Personal</span>
+            <span>{{'header.personalSample' | translate}}</span>
           </a>
           <a class="dropdown-item" href="https://github.com/AdrianSalvador21" target="_blank">
             <i class="fab fa-github drop-icon"></i>
-            <span>Perfil Github</span>
+            <span>{{'header.githubProfile' | translate}}</span>
           </a>
         </div>
       </div>

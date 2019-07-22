@@ -1,14 +1,14 @@
 <!--<h2 class="mb-3 ml-2">Repositorios</h2>-->
 
 <div class="title-container">
-  <h4 class="mb-3 ml-2 title">Repositorios</h4>
+  <h4 class="mb-3 ml-2 title">{{'repositories.title' | translate}}</h4>
 </div>
 
 <div class="row" *ngIf="!!repositoriesToShow && !!languages">
   <div class="col-12 col-sm-12 col-md-4 col-lg-3 mt-5 col-xl-2 checks-container">
     <div class="mb-3 check-global-container">
       <div class="check-container">
-        <p class="filter-title">Tipo</p>
+        <p class="filter-title">{{'repositories.filter.type' | translate}}</p>
         <div class="custom-control custom-checkbox" *ngFor="let language of languages">
           <input (change)="changeLanguage()" type="checkbox" class="custom-control-input languages" [id]="language"
                  [value]="language">
@@ -18,15 +18,15 @@
     </div>
     <div>
       <div class="check-container">
-        <p class="filter-title">Acceso</p>
+        <p class="filter-title">{{'repositories.filter.access' | translate}}</p>
         <div class="custom-control custom-checkbox">
           <input (change)="changePrivate()" type="checkbox" class="custom-control-input private" id="public">
-          <label class="custom-control-label" for="public">Público</label>
+          <label class="custom-control-label" for="public">{{'repositories.filter.public' | translate}}</label>
         </div>
 
         <div class="custom-control custom-checkbox">
           <input (change)="changePrivate()" type="checkbox" class="custom-control-input private" id="private">
-          <label class="custom-control-label" for="private">Privado</label>
+          <label class="custom-control-label" for="private">{{'repositories.filter.private' | translate}}</label>
         </div>
       </div>
     </div>
@@ -35,15 +35,15 @@
 
   <div class="col-12 mt-3 col-sm-12 col-md-8 col-lg-9 col-xl-10 mt-3">
     <div class="add-button-container">
-      <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addModal">Agregar Repositorio</button>
+      <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addModal">{{'general.addRepository' | translate}}</button>
     </div>
     <div class="animated fadeIn fast cards-container">
       <div class="card card-content" *ngFor="let repo of repositoriesToShow">
         <div class="card-body">
           <a class="my-2 my-sm-0 card-title repository-link" [href]="repo.html_url"
              target="_blank">{{repo.name | uppercase}}</a>
-          <p class="card-text" *ngIf="!repo.private">Acceso publico</p>
-          <p class="card-text" *ngIf="repo.private">Acceso privado</p>
+          <p class="card-text" *ngIf="!repo.private">{{'repositories.publicAccess' | translate}}</p>
+          <p class="card-text" *ngIf="repo.private">{{'repositories.privateAccess' | translate}}</p>
           <p class="card-text">{{repo.description}}</p>
           <p class="card-text">{{repo.language}}</p>
         </div>
@@ -65,7 +65,7 @@
     <div class="modal-content">
       <div class="modal-header bg-light">
         <h4 class="modal-title" id="addModalLabel">
-          Crear Repositorio
+          {{'repositories.createRepository.create' | translate}}
         </h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -75,30 +75,30 @@
 
         <form [formGroup]="filterForm" #form="ngForm">
           <div class="form-group">
-            <label for="name-control">Nombre Repositorio</label>
+            <label for="name-control">{{'repositories.createRepository.repositoryName' | translate}}</label>
             <input type="text"
                    autocomplete="off"
                    class="form-control"
                    id="name-control"
                    formControlName="name"
                    aria-describedby="name-control-help"
-                   placeholder="Nombre">
+                   placeholder="{{'repositories.createRepository.name' | translate}}">
             <small id="name-control-help" class="form-text text-muted">
-              Los grandes nombres de los repositorios son cortos y memorables.</small>
+              {{'repositories.createRepository.namesHelp' | translate}}</small>
           </div>
           <div class="form-group">
-            <label for="description-control">Descripción (opcional)</label>
+            <label for="description-control">{{'repositories.createRepository.descriptionTitle' | translate}}</label>
             <input type="text"
                    autocomplete="off"
                    class="form-control"
                    formControlName="description"
                    id="description-control"
-                   placeholder="Descripción">
+                   placeholder="{{'repositories.createRepository.description' | translate}}">
           </div>
 
           <div class="form-check">
             <input type="checkbox" formControlName="private" class="form-check-input" id="private-control">
-            <label class="form-check-label" for="private-control">Repositorio Privado</label>
+            <label class="form-check-label" for="private-control">{{'repositories.createRepository.privateRepository' | translate}}</label>
           </div>
         </form>
 
@@ -107,15 +107,15 @@
         </div>
 
         <div class="alert alert-danger error-dialog" role="alert" *ngIf="error">
-          Error al crear repositorio. Verifica que no sea existente e inténtalo de nuevo.
+          {{'repositories.createRepository.error' | translate}}
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">{{'general.cancelButton' | translate}}</button>
         <button type="button"
                 [disabled]="filterForm.invalid || creatingRepository"
-                class="btn btn-dark btn-sm" (click)="createRepository()">Crear</button>
+                class="btn btn-dark btn-sm" (click)="createRepository()">{{'general.createButton' | translate}}</button>
       </div>
     </div>
   </div>

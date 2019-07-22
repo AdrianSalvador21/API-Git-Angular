@@ -1,14 +1,14 @@
 <div class="title-container">
-  <h4 class="mb-3 ml-2 title">Proyectos</h4>
+  <h4 class="mb-3 ml-2 title">{{'projects.title' | translate}}</h4>
 </div>
 
 <div class="new-button-container mt-3 mb-3 col-12">
-  <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addProject">Nuevo Proyecto</button>
+  <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addProject">{{'projects.newProject' | translate}}</button>
 </div>
 
 <div class="w-100 alert-container">
   <div class="alert alert-info col-12 col-sm-10 col-md-10 col-lg-9 alert-content" role="alert" *ngIf="!!projects && projects.length === 0">
-    Aún no hay proyectos disponibles.
+    {{'projects.emptyProjects' | translate}}
   </div>
 </div>
 
@@ -31,7 +31,7 @@
 
           <form #form="ngForm">
             <div class="form-group">
-              <label for="name-control">Nombre Proyecto</label>
+              <label for="name-control">{{'projects.updateForm.name' | translate}}</label>
               <input type="text"
                      autocomplete="off"
                      class="form-control"
@@ -40,53 +40,53 @@
                      required
                      [ngModel]="project.name"
                      aria-describedby="name-control-help"
-                     placeholder="Nombre">
+                     placeholder="{{'projects.updateForm.name' | translate}}">
             </div>
             <div class="form-group">
-              <label for="description-control">Descripción</label>
+              <label for="description-control">{{'projects.updateForm.description' | translate}}</label>
               <input type="text"
                      autocomplete="off"
                      class="form-control"
                      id="description-control"
                      [ngModel]="project.body"
                      name="description"
-                     placeholder="Descripción">
+                     placeholder="{{'projects.updateForm.description' | translate}}">
             </div>
 
             <div class="form-group">
-              <label for="status-control">Estado</label>
+              <label for="status-control">{{'projects.updateForm.status' | translate}}</label>
               <select id="status-control" [ngModel]="project.state" name="state" class="custom-select">
-                <option value="open">Abierto</option>
-                <option value="closed">Cerrado</option>
+                <option value="open">{{'projects.updateForm.statusOptions.open' | translate}}</option>
+                <option value="closed">{{'projects.updateForm.statusOptions.closed' | translate}}</option>
               </select>
             </div>
           </form>
 
           <div class="alert alert-success" role="alert" *ngIf="updateSuccess">
-            Proyecto actualizado correctamente.
+            {{'projects.updateForm.updatedSuccessfully' | translate}}
           </div>
           <div class="alert alert-danger" role="alert" *ngIf="updateError">
-            Error al actualizar el proyecto. Intantalo de nuevo.
+            {{'projects.updateForm.updatedFailed' | translate}}
           </div>
 
           <div class="buttons-container">
             <button type="button"
                     [swal]="deleteSwal"
-                    class="btn btn-danger btn-sm ml-1">Eliminar
+                    class="btn btn-danger btn-sm ml-1">{{'general.deleteButton' | translate}}
             </button>
 
             <swal
               #deleteSwal
-              title="¿Eliminar {{ project.name }}?"
-              text="El cambio no puede ser removido. ¿Está seguro?"
+              title="{{'projects.updateForm.deleteQuestion' | translate}} {{ project.name }}?"
+              text="{{'projects.updateForm.deleteWarning' | translate}}"
               type="question"
               [showCancelButton]="true"
-              [options]="{ confirmButtonText: 'Eliminar', cancelButtonText: 'Cancelar', confirmButtonColor: '#d75e6f', cancelButtonColor: '#b5b5b5' }"
+              [options]="{ confirmButtonText: swalData.deleteButton, cancelButtonText: swalData.cancelButton, confirmButtonColor: '#d75e6f', cancelButtonColor: '#b5b5b5' }"
               (confirm)="deleteProject(i,project.id)">
             </swal>
 
             <button [disabled]="form.invalid || project.updating" type="button" class="btn btn-dark btn-sm"
-                    (click)="updateProject(form, i, project.id)">Actualizar
+                    (click)="updateProject(form, i, project.id)">{{'general.updateButton' | translate}}
             </button>
             <i class="fas fa-spinner fa-pulse update-icon" *ngIf="project.updating"></i>
           </div>
@@ -96,14 +96,13 @@
   </ul>
 </div>
 
-
 <!-- Modal -->
 <div class="modal fade" #childModal id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addProjectModalLabel">Crear proyecto</h5>
+        <h5 class="modal-title" id="addProjectModalLabel">{{'projects.createModal.create' | translate}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -111,7 +110,7 @@
       <div class="modal-body">
         <form [formGroup]="filterForm" #form="ngForm">
           <div class="form-group">
-            <label for="name-control">Nombre Proyecto</label>
+            <label for="name-control">{{'projects.createModal.projectName' | translate}}</label>
             <input type="text"
                    autocomplete="off"
                    class="form-control"
@@ -119,23 +118,23 @@
                    name="name"
                    required
                    aria-describedby="name-control-help"
-                   placeholder="Nombre">
+                   placeholder="{{'projects.createModal.name' | translate}}">
           </div>
           <div class="form-group">
-            <label for="description-control">Descripción</label>
+            <label for="description-control">{{'projects.createModal.description' | translate}}</label>
             <input type="text"
                    autocomplete="off"
                    class="form-control"
                    formControlName="body"
                    name="description"
-                   placeholder="Descripción">
+                   placeholder="{{'projects.createModal.description' | translate}}">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">{{'general.cancelButton' | translate}}</button>
         <button type="button" class="btn btn-dark btn-sm" [disabled]="filterForm.invalid" (click)="createProject()">
-          Crear
+          {{'general.createButton' | translate}}
         </button>
       </div>
     </div>

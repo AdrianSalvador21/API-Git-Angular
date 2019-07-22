@@ -1,0 +1,73 @@
+{
+  "header": {
+    "repositories": "Repositorios",
+    "projects": "Proyectos",
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "personalSample": "Muestra Personal",
+    "githubProfile": "Perfil Github"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "newProject": "Nuevo Proyecto",
+    "emptyProjects": "Aún no hay proyectos disponibles.",
+    "updateForm": {
+      "name": "Nuevo Proyecto",
+      "description": "Descripción",
+      "status": "Estado",
+      "statusOptions": {
+        "open": "Abierto",
+        "closed": "Cerrado"
+      },
+      "updatedSuccessfully": "Proyecto actualizado correctamente.",
+      "updatedFailed": "Error al actualizar el proyecto. Intantalo de nuevo.",
+      "deleteQuestion": "¿Eliminar ",
+      "deleteWarning": "El cambio no puede ser removido. ¿Está seguro?"
+    },
+    "createModal": {
+      "create": "Crear Proyecto",
+      "name": "Nombre",
+      "description": "Descripción",
+      "projectName": "Nombre Proyecto"
+    }
+  },
+  "repositories": {
+    "title": "Repositorios",
+    "publicAccess": "Acceso publico",
+    "privateAccess": "Acceso privado",
+    "filter": {
+      "type": "Tipo",
+      "access": "Acceso",
+      "public": "Publico",
+      "private": "Privado"
+    },
+    "createRepository": {
+      "create": "Crear Repositorio",
+      "repositoryName": "Nombre Repositorio",
+      "name": "Nombre",
+      "namesHelp": "Los grandes nombres de los repositorios son cortos y memorables.",
+      "descriptionTitle": "Descripción (opcional)",
+      "description": "Descripción",
+      "privateRepository": "Repositorio Privado",
+      "error": "Error al crear repositorio. Verifica que no sea existente e inténtalo de nuevo."
+    }
+  },
+  "following": {
+    "title": "Siguiendo"
+  },
+  "search": {
+    "title": "Buscar Usuarios",
+    "name": "Nombre"
+  },
+  "followers": {
+    "title": "Seguidores"
+  },
+  "general": {
+    "deleteButton": "Eliminar",
+    "updateButton": "Actualizar",
+    "cancelButton": "Cancelar",
+    "createButton": "Crear",
+    "searchButton": "Buscar",
+    "addRepository": "Agregar Repositorio"
+  }
+}

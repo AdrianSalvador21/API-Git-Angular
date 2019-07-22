@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {GithubService} from '../../shared/github.service';
 import {FormBuilder, NgForm, Validators} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-proyects',
@@ -12,13 +13,14 @@ export class ProyectsComponent implements OnInit {
   updateSuccess = false;
   updateError = false;
   projects: any;
+  swalData = {};
 
   filterForm = this.fb.group({
     name: ['', [Validators.required]],
     body: ['']
   });
 
-  constructor(private githubService: GithubService, public fb: FormBuilder) {
+  constructor(private githubService: GithubService, public fb: FormBuilder, public translateService: TranslateService) {
     this.githubService.getProjects().subscribe(projectsResponse => {
       this.projects = projectsResponse;
       this.projects.forEach(project => {
@@ -28,6 +30,10 @@ export class ProyectsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.swalData = {
+      deleteButton: this.translateService.instant('general.deleteButton'),
+      cancelButton: this.translateService.instant('general.cancelButton'),
+    };
   }
 
   updateProject(form: NgForm, index, id) {

@@ -6,7 +6,7 @@ import {FollowersComponent} from './components/followers/followers.component';
 import {FollowingComponent} from './components/following/following.component';
 
 const routes: Routes = [
-  { path: 'proyects', component: ProyectsComponent},
+  { path: 'projects', component: ProyectsComponent},
   { path: 'repositories', component: RepositoriesComponent},
   { path: 'followers', component: FollowersComponent},
   { path: 'following', component: FollowingComponent},

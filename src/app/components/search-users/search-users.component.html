@@ -1,11 +1,11 @@
 <div class="title-container">
-  <h4 class="mb-3  title">Buscar usuarios</h4>
+  <h4 class="mb-3  title">{{'search.title' | translate}}</h4>
 </div>
 
 <div class="input-group mb-3">
-    <input type="text" class="form-control" autocomplete="off" #searchInput placeholder="Nombre" ngModel name="search" aria-label="name" aria-describedby="button-search">
+    <input type="text" class="form-control" autocomplete="off" #searchInput placeholder="{{'search.name' | translate}}" ngModel name="search" aria-label="name" aria-describedby="button-search">
     <div class="input-group-append">
-      <button class="btn btn-dark" type="button" id="button-search" [disabled]="!searchInput.value" (click)="search(searchInput)">Buscar</button>
+      <button class="btn btn-dark" type="button" id="button-search" [disabled]="!searchInput.value" (click)="search(searchInput)">{{'general.searchButton' | translate}}</button>
     </div>
 </div>
 
