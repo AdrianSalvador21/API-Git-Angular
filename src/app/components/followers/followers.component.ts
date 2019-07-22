@@ -11,7 +11,6 @@ export class FollowersComponent implements OnInit {
 
   constructor(public githubService: GithubService) {
     this.githubService.followersUser().subscribe(followersResponse => {
-      console.log(followersResponse);
       this.followers = followersResponse;
     });
   }

@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
 
   changeLanguage() {
     this.language = this.language === 'es' ? 'en' : 'es';
-    console.log(this.language);
     const accion = new SetLanguageAction( this.language );
     this.store.dispatch( accion );
   }

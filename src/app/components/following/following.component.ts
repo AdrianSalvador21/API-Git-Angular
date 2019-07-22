@@ -15,7 +15,6 @@ export class FollowingComponent implements OnInit {
 
   constructor(public githubService: GithubService) {
     this.githubService.getFollowingUser().subscribe(followingResponse => {
-      console.log(followingResponse);
       this.followingUsers = followingResponse;
       this.followingUsers.forEach(user => {
         user.follow = true;
@@ -30,7 +29,6 @@ export class FollowingComponent implements OnInit {
   unfollowUser(username, i) {
     this.followingUsers[i].follow = false;
     this.githubService.unfollowUser(username.login).subscribe(unfollowResponse => {
-      console.log(unfollowResponse);
     });
 
     this.searchComponent.unfollow(username);
