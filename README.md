@@ -1,14 +1,21 @@
-# GitExample
+# GitExample App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+## Descripción
+
+La aplicación es un ejemplo de como implementar el API de Github, obteniendo los repositorios, los proyectos y los seguidores, asi como poder crear, actualizar y eliminar los diferentes elementos.
+
+## Enlace muestra
+
+https://git-example-d2907.web.app/repositories
+
+## Implementaciones
+
+La aplicación implementa el multilenguaje mediante el uso de readux. Editar es.js/en.json.
+Se cuenta con una visualización correcta en dispositivos moviles.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
