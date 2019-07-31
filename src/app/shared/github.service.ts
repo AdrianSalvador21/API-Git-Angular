@@ -131,6 +131,7 @@ export class GithubService {
   }
 
   unfollowUser(username): any {
+    console.log(username);
     return this.http.delete<any>(`https://api.github.com/user/following/${username}?access_token=${this.accessToken + this.accessTokenTwo}`,
       {
         headers: {
@@ -139,6 +140,8 @@ export class GithubService {
       }
     ).pipe(
       map((response) => {
+        console.log(username);
+        console.log(response);
         return response;
       }));
   }
